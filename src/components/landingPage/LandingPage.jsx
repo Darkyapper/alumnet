@@ -27,10 +27,10 @@ function LandingPage() {
             Da un salto hacia el aprendizaje colaborativo y efectivo.
           </p>
           <div className="flex justify-center space-x-4">
-            <button className="bg-white text-[#00032E] px-6 py-3 rounded-lg font-bold hover:bg-gray-100" onClick={handleNavigateToSignUp}>
+            <button className="transition ease-in-out bg-[#FFF1E6] text-[#00032E] px-6 py-3 rounded-lg font-bold hover:bg-[#EDDFD4] hover:scale-105" onClick={handleNavigateToSignUp}>
               Registrate Ahora
             </button>
-            <button className="bg-[#E95F3C] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#D95230]"  onClick={handleNavigateToLogin}>
+            <button className="transition ease-in-out bg-[#5C5EB2] text-[#FFF1E6] px-6 py-3 rounded-lg font-bold hover:bg-[#444699] hover:scale-105 "  onClick={handleNavigateToLogin}>
               Iniciar Sesión
             </button>
           </div>
@@ -40,7 +40,7 @@ function LandingPage() {
       {/* Features Section */}
       <section className="py-20">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-normal text-white anton-font text-center mb-10">¿Por qué elegir AlumNet?</h2>
+          <h2 className="text-4xl font-normal text-[#FFF1E6] anton-font text-center mb-10">¿Por qué elegir AlumNet?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-[#37B4F4] text-[#00032E] shadow-lg p-6 rounded-lg text-center">
               <FaChalkboardTeacher className="text-6xl mb-4 justify-self-center" />
@@ -86,7 +86,7 @@ function LandingPage() {
       {/* Intelligent Learning Section */}
       <section className="py-20">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-normal text-white anton-font text-center mb-10">
+          <h2 className="text-4xl font-normal text-[#FFF1E6] anton-font text-center mb-10">
             Aprendizaje Inteligente
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
@@ -94,7 +94,7 @@ function LandingPage() {
               <SiOpenai className="text-9xl text-[#34B5F6]" />
             </div>
             <div>
-              <p className="text-lg raleway-font text-white">
+              <p className="text-lg raleway-font text-[#FFF1E6]">
                 Con nuestro modelo de IA, AlumNet personaliza el aprendizaje
                 para que cada estudiante pueda avanzar a su propio ritmo. La IA
                 analiza el progreso y adapta los recursos para maximizar el
@@ -128,11 +128,11 @@ function LandingPage() {
 
 
       {/* Call-to-Action Section */}
-      <section className="bg-blue-500 text-white py-20">
+      <section className="bg-blue-500 text-[#FFF1E6] py-20">
         <div className="container mx-auto text-center">
           <h2 className="text-4xl font-normal anton-font mb-4">¿Listo para unirte?</h2>
           <p className="text-lg mb-6 raleway-font">Regístrate ahora y empieza a crear, colaborar y aprender.</p>
-          <button className="raleway-font bg-white text-blue-500 px-6 py-3 rounded-lg font-bold hover:bg-gray-100" onClick={handleNavigateToSignUp}>
+          <button className="transition ease-in-out bg-[#5C5EB2] text-[#FFF1E6] px-6 py-3 rounded-lg font-bold hover:bg-[#444699] hover:scale-105" onClick={handleNavigateToSignUp}>
             Regístrate Gratis
           </button>
         </div>

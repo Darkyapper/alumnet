@@ -10,7 +10,7 @@ function LandingNavbar() {
         </div>
 
         {/* Call-to-Action Button */}
-        <button className="raleway-font bg-white text-[#00032E] px-4 py-2 rounded-lg font-bold hover:bg-gray-100">
+        <button className="transition ease-in-out raleway-font bg-[#FFF1E6] text-[#00032E] px-4 py-2 rounded-lg font-bold hover:bg-[#EDDFD4] hover:scale-105">
           Iniciar Sesión
         </button>
       </div>

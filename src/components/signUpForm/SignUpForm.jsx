@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { supabase } from "../supabase/supabaseClient";
+import { Link, useNavigate  } from "react-router-dom";
+import { IoMdCloseCircle } from "react-icons/io";
 import bcrypt from "bcryptjs";
 
 function SignUpForm() {
@@ -15,6 +17,12 @@ function SignUpForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleCloseForm = () => {
+    navigate("/");
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -40,7 +48,13 @@ function SignUpForm() {
       // Insertar el usuario en la tabla user_account
       const { error } = await supabase.from("user_account").insert([dataToSubmit]);
 
-      if (error) throw error;
+      if (error) {
+        // Manejar errores específicos
+        if (error.code === "23505" || error.message.includes("duplicate key value")) {
+          throw new Error("Parece que el correo que estás intentando registrar ya está usado.");
+        }
+        throw new Error("Estamos teniendo dificultades, inténtelo más tarde.");
+      }
 
       setSuccess(true);
       setFormData({
@@ -59,14 +73,21 @@ function SignUpForm() {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen flex items-center justify-center">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-4">Crea tu cuenta</h1>
+    <div className="bg-[#19253B] min-h-screen flex items-center justify-center raleway-font">
+      <div
+        className={`bg-[#33354A] p-8 rounded shadow-md w-full max-w-md ${
+          loading ? "cursor-wait" : ""
+        }`}
+      >
+        <div>
+            <IoMdCloseCircle className="text-3xl text-white float-right cursor-pointer" onClick={handleCloseForm} />
+            <h1 className="text-2xl text-white font-normal mb-4 anton-font tracking-wide">Crea tu cuenta</h1>
+        </div>
         {error && <p className="text-red-500">{error}</p>}
         {success && <p className="text-green-500">¡Registro exitoso!</p>}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium">Nombre</label>
+            <label className="block text-sm font-bold text-white">Nombre</label>
             <input
               type="text"
               name="first_name"
@@ -77,7 +98,7 @@ function SignUpForm() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium">Apellido</label>
+            <label className="block text-sm font-bold text-white">Apellido</label>
             <input
               type="text"
               name="last_name"
@@ -88,7 +109,7 @@ function SignUpForm() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium">Fecha de Nacimiento</label>
+            <label className="block text-sm font-bold text-white">Fecha de Nacimiento</label>
             <input
               type="date"
               name="birth_date"
@@ -99,7 +120,7 @@ function SignUpForm() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium">Correo Electrónico</label>
+            <label className="block text-sm font-bold text-white">Correo Electrónico</label>
             <input
               type="email"
               name="email"
@@ -110,7 +131,7 @@ function SignUpForm() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium">Teléfono</label>
+            <label className="block text-sm font-bold text-white">Teléfono</label>
             <input
               type="tel"
               name="phone"
@@ -120,7 +141,7 @@ function SignUpForm() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium">Contraseña</label>
+            <label className="block text-sm font-bold text-white">Contraseña</label>
             <input
               type="password"
               name="password"
@@ -132,11 +153,18 @@ function SignUpForm() {
           </div>
           <button
             type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded font-bold w-full hover:bg-blue-600"
+            className={`bg-blue-500 text-white px-4 py-2 rounded font-bold w-full hover:bg-blue-600 ${
+              loading ? "cursor-wait" : ""
+            }`}
             disabled={loading}
           >
             {loading ? "Registrando..." : "Registrarse"}
           </button>
+          <div className="text-center mt-4">
+            <p className="text-blue-300 font-bold cursor-pointer underline hover:text-blue-800">
+              ¿Ya tienes una cuenta? Inicia Sesión
+            </p>
+          </div>
         </form>
       </div>
     </div>
