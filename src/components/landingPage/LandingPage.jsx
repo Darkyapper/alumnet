@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./LandingPage.css";
-import { FaChalkboardTeacher, FaTrophy } from "react-icons/fa";
-import { MdTask } from "react-icons/md";
+import { FaChalkboardTeacher, FaTrophy, FaLightbulb } from "react-icons/fa";
+import { MdTask, MdDevices } from "react-icons/md";
+import { SiOpenai } from "react-icons/si";
 
 function LandingPage() {
 
@@ -49,6 +50,71 @@ function LandingPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Collaborative Learning Section */}
+      <section className="py-20 bg-gray-100">
+        <div className="container mx-auto px-6">
+          <h2 className="text-4xl font-normal text-[#00032E] anton-font text-center mb-10">
+            Aprendizaje Colaborativo
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+            <div>
+              <p className="text-lg raleway-font text-[#00032E]">
+                AlumNet fomenta el trabajo en equipo con tableros interactivos
+                donde los estudiantes pueden colaborar en tiempo real, compartir
+                ideas y desarrollar proyectos de manera conjunta.
+              </p>
+            </div>
+            <div className="flex justify-center">
+              <FaLightbulb className="text-9xl text-[#34B5F6]" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Intelligent Learning Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-6">
+          <h2 className="text-4xl font-normal text-white anton-font text-center mb-10">
+            Aprendizaje Inteligente
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+            <div className="flex justify-center">
+              <SiOpenai className="text-9xl text-[#34B5F6]" />
+            </div>
+            <div>
+              <p className="text-lg raleway-font text-white">
+                Con nuestro modelo de IA, AlumNet personaliza el aprendizaje
+                para que cada estudiante pueda avanzar a su propio ritmo. La IA
+                analiza el progreso y adapta los recursos para maximizar el
+                rendimiento.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Always Accessible Section */}
+      <section className="py-20 bg-gray-100">
+        <div className="container mx-auto px-6">
+          <h2 className="text-4xl font-normal text-[#00032E] anton-font text-center mb-10">
+            Recursos Siempre Accesibles
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+            <div>
+              <p className="text-lg raleway-font text-[#00032E]">
+                Accede a recursos educativos desde cualquier dispositivo,
+                cuando los necesites. AlumNet está diseñado para estar siempre
+                a tu alcance, facilitando el aprendizaje continuo.
+              </p>
+            </div>
+            <div className="flex justify-center">
+              <MdDevices className="text-9xl text-[#34B5F6]" />
+            </div>
+          </div>
+        </div>
+      </section>
+
 
             {/* Call-to-Action Section */}
             <section className="bg-blue-500 text-white py-20">
