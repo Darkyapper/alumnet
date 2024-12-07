@@ -110,6 +110,10 @@ function LoginForm() {
                         onClick={handleNavigateToSignUpForm}>
                             ¿No tienes una cuenta? Regístrate
                         </p>
+                        <p className="text-blue-300 mt-4 font-bold cursor-pointer underline hover:text-blue-800">
+                            ¿Problemas para iniciar sesión?
+                        </p>
+                        
                     </div>
                 </form>
             </div>
