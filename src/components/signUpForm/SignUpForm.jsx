@@ -24,6 +24,10 @@ function SignUpForm() {
     navigate("/");
   };
 
+  const handleNavigateToLogin = () => {
+    navigate("/login");
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -161,7 +165,8 @@ function SignUpForm() {
             {loading ? "Registrando..." : "Registrarse"}
           </button>
           <div className="text-center mt-4">
-            <p className="text-blue-300 font-bold cursor-pointer underline hover:text-blue-800">
+            <p className="text-blue-300 font-bold cursor-pointer underline hover:text-blue-800"
+            onClick={handleNavigateToLogin}>
               ¿Ya tienes una cuenta? Inicia Sesión
             </p>
           </div>
