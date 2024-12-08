@@ -55,7 +55,7 @@ function LoginForm() {
             localStorage.setItem("user_id", users.id);
 
             // Redirigir al usuario a la página principal (ajústalo según tu lógica)
-            window.location.href = "/";
+            window.location.href = "/home";
         } catch (err) {
             setError(err.message);
         } finally {
