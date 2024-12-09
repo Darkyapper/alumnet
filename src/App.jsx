@@ -10,7 +10,7 @@ import MainLayout from "./layout/MainLayout";
 import BoardFeedPage from "./pages/BoardFeedPage";
 import CoursesPage from "./pages/CoursesPage";
 import CourseAPage from "./pages/CourseAPage";
-import AssignmentsPage from "./pages/assignmentsPage";
+import AssignmentsPage from "./pages/AssignmentsPage";
 
 function App() {
   return (
