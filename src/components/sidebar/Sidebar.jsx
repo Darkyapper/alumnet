@@ -15,6 +15,14 @@ function Sidebar() {
     navigate("/boards");
   };
 
+  const handdleCourses= () => {
+    navigate("/courses");
+  };
+
+  const handdleAssignments= () => {
+    navigate("/assignments");
+  };
+
   return (
     <aside className="bg-[#25273C] text-white w-64 flex flex-col">
       <div className="px-6 py-4 text-2xl tracking-wider anton-font font-normal text-center border-b border-gray-700">
@@ -35,20 +43,20 @@ function Sidebar() {
           <FaTable />
           <span>Tableros</span>
         </button>
-        <a
-          href="#"
-          className="flex items-center space-x-2 text-lg font-medium hover:bg-gray-700 p-3 rounded"
+        <button
+          className="w-full flex items-center space-x-2 text-lg font-medium hover:bg-gray-700 p-3 rounded text-left"
+          onClick={handdleCourses}
         >
           <MdClass />
           <span>Mis Cursos</span>
-        </a>
-        <a
-          href="#"
-          className="flex items-center space-x-2 text-lg font-medium hover:bg-gray-700 p-3 rounded"
+        </button>
+        <button
+          className="w-full flex items-center space-x-2 text-lg font-medium hover:bg-gray-700 p-3 rounded text-left"
+          onClick={handdleAssignments}
         >
-          <FaClipboardList />
-          <span>Actividades</span>
-        </a>
+          <FaClipboardList/>
+          <span>Mis Asignaciones</span>
+        </button>
         <a
           href="#"
           className="flex items-center space-x-2 text-lg font-medium hover:bg-gray-700 p-3 rounded"
