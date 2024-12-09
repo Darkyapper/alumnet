@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { supabase } from "../components/supabase/supabaseClient";
 import BoardSelector from "../components/boardSelector/BoardSelector";
 import BoardList from "../components/boardList/BoardList";
+import CreateBoardForm from "../components/createBoardForm/CreateBoardForm";
 
 function BoardsPage() {
   const [selectedOption, setSelectedOption] = useState("myBoards");
@@ -68,14 +69,12 @@ function BoardsPage() {
           selectedOption={selectedOption}
           onOptionChange={setSelectedOption}
         />
-        <div className="flex-1 overflow-y-auto bg-gray-50">
+        <div className="flex-1 overflow-y-auto bg-gray-50 p-6">
           {loading && <p className="raleway-font text-center mt-4">Cargando...</p>}
           {!loading && selectedOption === "myBoards" && <BoardList boards={boards} />}
           {!loading && selectedOption === "searchBoards" && <BoardList boards={boards} />}
           {selectedOption === "createBoard" && (
-            <div className="p-6">
-              <p className="text-center">Formulario para crear un nuevo tablero (próximamente)</p>
-            </div>
+            <CreateBoardForm onBoardCreated={fetchPublicBoards} />
           )}
         </div>
       </div>

@@ -1,14 +1,13 @@
 import React from "react";
-import { FaHome, FaUser, FaCog, FaBell, FaTable, FaClipboardList } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { FaHome, FaUser, FaCog, FaTable, FaClipboardList } from "react-icons/fa";
 import { MdClass } from "react-icons/md";
-import { PiBooksFill  } from "react-icons/pi";
+import { PiBooksFill } from "react-icons/pi";
+import { useNavigate } from "react-router-dom";
 
 function Sidebar() {
-
   const navigate = useNavigate();
 
-  const haddleHome = () => { 
+  const haddleHome = () => {
     navigate("/home");
   };
 
@@ -22,25 +21,25 @@ function Sidebar() {
         AlumNet
       </div>
       <nav className="raleway-font flex-1 px-4 py-4 space-y-4">
-        <a
-          className="flex items-center space-x-2 text-lg font-medium hover:bg-gray-700 p-3 rounded"
+        <button
+          className="w-full flex items-center space-x-2 text-lg font-medium hover:bg-gray-700 p-3 rounded text-left"
           onClick={haddleHome}
         >
           <FaHome />
           <span>Inicio</span>
-        </a>
-        <a
-          className="flex items-center space-x-2 text-lg font-medium hover:bg-gray-700 p-3 rounded"
+        </button>
+        <button
+          className="w-full flex items-center space-x-2 text-lg font-medium hover:bg-gray-700 p-3 rounded text-left"
           onClick={handdleBoards}
         >
           <FaTable />
           <span>Tableros</span>
-        </a>
+        </button>
         <a
           href="#"
           className="flex items-center space-x-2 text-lg font-medium hover:bg-gray-700 p-3 rounded"
         >
-          <MdClass  />
+          <MdClass />
           <span>Mis Cursos</span>
         </a>
         <a
@@ -54,7 +53,7 @@ function Sidebar() {
           href="#"
           className="flex items-center space-x-2 text-lg font-medium hover:bg-gray-700 p-3 rounded"
         >
-          <PiBooksFill  />
+          <PiBooksFill />
           <span>Recursos</span>
         </a>
         <a
