@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { supabase } from "../supabase/supabaseClient";
-import { Link, useNavigate  } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { IoMdCloseCircle } from "react-icons/io";
 import bcrypt from "bcryptjs";
 
@@ -76,6 +76,16 @@ function SignUpForm() {
     }
   };
 
+  // Redirigir automáticamente al inicio de sesión después de 3 segundos si el registro es exitoso
+  useEffect(() => {
+    if (success) {
+      const timer = setTimeout(() => {
+        navigate("/login");
+      }, 1500); // 3 segundos
+      return () => clearTimeout(timer); // Limpiar el temporizador al desmontar el componente
+    }
+  }, [success, navigate]);
+
   return (
     <div className="bg-[#19253B] min-h-screen flex items-center justify-center raleway-font">
       <div
@@ -84,11 +94,11 @@ function SignUpForm() {
         }`}
       >
         <div>
-            <IoMdCloseCircle className="text-3xl text-white float-right cursor-pointer" onClick={handleCloseForm} />
-            <h1 className="text-2xl text-white font-normal mb-4 anton-font tracking-wide">Crea tu cuenta</h1>
+          <IoMdCloseCircle className="text-3xl text-white float-right cursor-pointer" onClick={handleCloseForm} />
+          <h1 className="text-2xl text-white font-normal mb-4 anton-font tracking-wide">Crea tu cuenta</h1>
         </div>
         {error && <p className="text-red-500">{error}</p>}
-        {success && <p className="text-green-500">¡Registro exitoso!</p>}
+        {success && <p className="text-green-500">¡Registro exitoso! Redirigiendo a inicio de sesión...</p>}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-bold text-white">Nombre</label>
@@ -165,8 +175,10 @@ function SignUpForm() {
             {loading ? "Registrando..." : "Registrarse"}
           </button>
           <div className="text-center mt-4">
-            <p className="text-blue-300 font-bold cursor-pointer underline hover:text-blue-800"
-            onClick={handleNavigateToLogin}>
+            <p
+              className="text-blue-300 font-bold cursor-pointer underline hover:text-blue-800"
+              onClick={handleNavigateToLogin}
+            >
               ¿Ya tienes una cuenta? Inicia Sesión
             </p>
           </div>

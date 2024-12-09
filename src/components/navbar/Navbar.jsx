@@ -4,7 +4,7 @@ import { FaBell, FaUser } from "react-icons/fa";
 function Navbar() {
   return (
     <header className="bg-white shadow flex items-center justify-between px-6 py-4">
-      <div className="anton-font tracking-wider text-xl font-normal">Mi Inicio</div>
+      <div className="anton-font tracking-wider text-xl font-normal"></div>
       <div className="flex items-center space-x-4">
         <input
           type="text"
