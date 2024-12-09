@@ -51,11 +51,14 @@ function MarkdownEditor({ boardId, onClose, onPostCreated }) {
         className="w-full mb-4 px-3 py-2 border rounded"
       />
 
+      <p className="text-sm">Los post utilizan el formato Markdown para poderse visualizar</p>
+      <a href="https://markdown.es/sintaxis-markdown/"><p className="text-sm underline text-blue-800">Consulta el manual de sitaxis Markdown aquí</p></a>
+
       <textarea
         placeholder="Escribe tu contenido en Markdown"
         value={content}
         onChange={(e) => setContent(e.target.value)}
-        className="w-full h-40 px-3 py-2 border rounded"
+        className="w-full h-40 px-3 mt-2 py-2 border rounded"
       ></textarea>
 
       <button
