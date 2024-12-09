@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom"; // Importar useParams
+import { useParams } from "react-router-dom";
+import ReactMarkdown from "react-markdown"; // Importar react-markdown
+import remarkGfm from "remark-gfm"; // Importar remark-gfm para soporte extendido de Markdown
 import { supabase } from "../components/supabase/supabaseClient";
 import Modal from "../components/modal/Modal";
 import MarkdownEditor from "../components/markdownEditor/MarkdownEditor";
@@ -82,8 +84,13 @@ function BoardFeedPage() {
           <div className="space-y-4">
             {posts.map((post) => (
               <div key={post.post_id} className="bg-white shadow p-4 rounded">
-                <h3 className="text-lg font-normal anton-font mb-2">{post.post_title}</h3>
-                <p className="text-gray-700 raleway-font mb-4">{post.post_content}</p>
+                <h3 className="text-lg font-normal anton-font mb-2">{post.post_title} - por {post.author_name}</h3>
+                {/* Renderizar contenido del post en Markdown */}
+                <ReactMarkdown
+                  children={post.post_content}
+                  remarkPlugins={[remarkGfm]}
+                  className="prose" // Aplicar estilos prediseñados si usas Tailwind Typography
+                />
                 <button
                   className="raleway-font text-blue-500 underline"
                   onClick={() => openCommentsModal(post)}
